@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitcoin Price Card (Real-time) - Recipe</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="./src/style.css">
+</head>
+<body>
+    <div class="price-card">
+        <div class="price-card__header">
+            <span class="price-card__label">Bitcoin Price (BTC/USDT)</span>
+            <div id="status-dot" class="price-card__dot"></div>
+        </div>
+        <div class="price-card__body">
+            <div id="loading-skeleton" class="price-card__loading">
+                <div class="skeleton"></div>
+            </div>
+            <div id="error-message" class="price-card__error">
+                Connection lost. Retrying...
+            </div>
+            <div id="price-display" class="price-card__value" style="display: none;">
+                <span class="price-card__currency">$</span>
+                <span id="price-number" class="price-card__number">0.00</span>
+            </div>
+        </div>
+        <div class="price-card__footer">
+            <span id="connection-url" class="price-card__source">Live via WebSockets</span>
+            <div class="price-card__badge">LIVE</div>
+        </div>
+    </div>
+
+    <script type="module" src="./src/main.js"></script>
+</body>
+</html>

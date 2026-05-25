@@ -1,0 +1,27 @@
+{
+  "name": "@bitcoin-api-net/recipe-show-current-price-online",
+  "version": "1.0.0",
+  "description": "Real-time dashboard card showing Bitcoin price updated via WebSockets.",
+  "private": false,
+  "type": "module",
+  "scripts": {
+    "show-current-price-online:dev": "vite",
+    "show-current-price-online:build": "vite build",
+    "show-current-price-online:preview": "vite preview"
+  },
+  "keywords": [
+    "bitcoin",
+    "api",
+    "example",
+    "recipe",
+    "crypto",
+    "websocket",
+    "real-time"
+  ],
+  "author": "Bitcoin API Team",
+  "license": "ISC",
+  "homepage": "https://github.com/bitcoin-api-net/recipes/tree/main/show-current-price-online",
+  "devDependencies": {
+    "vite": "^7.3.0"
+  }
+}

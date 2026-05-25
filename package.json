@@ -4,7 +4,8 @@
   "description": "Official code examples and recipes for Bitcoin API integration.",
   "private": true,
   "workspaces": [
-    "show-current-price"
+    "show-current-price",
+    "show-current-price-online"
   ],
   "author": "Bitcoin API Team",
   "license": "ISC"
