@@ -1,0 +1,11 @@
+{
+  "name": "@bitcoin-api-net/recipes",
+  "version": "1.0.0",
+  "description": "Official code examples and recipes for Bitcoin API integration.",
+  "private": true,
+  "workspaces": [
+    "show-current-price"
+  ],
+  "author": "Bitcoin API Team",
+  "license": "ISC"
+}

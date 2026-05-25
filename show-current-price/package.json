@@ -1,0 +1,25 @@
+{
+  "name": "@bitcoin-api-net/recipe-show-current-price",
+  "version": "1.0.0",
+  "description": "Simple dashboard card showing real-time Bitcoin price fetched from Bitcoin API.",
+  "private": false,
+  "type": "module",
+  "scripts": {
+    "show-current-price:dev": "vite",
+    "show-current-price:build": "vite build",
+    "show-current-price:preview": "vite preview"
+  },
+  "keywords": [
+    "bitcoin",
+    "api",
+    "example",
+    "recipe",
+    "crypto"
+  ],
+  "author": "Bitcoin API Team",
+  "license": "ISC",
+  "homepage": "https://github.com/bitcoin-api-net/recipes/tree/main/show-current-price",
+  "devDependencies": {
+    "vite": "^7.3.0"
+  }
+}

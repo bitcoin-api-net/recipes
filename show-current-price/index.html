@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitcoin Price Card - Recipe</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="./src/style.css">
+</head>
+<body>
+    <div class="price-card">
+        <div class="price-card__header">
+            <span class="price-card__label">Bitcoin Price (BTC/USDT)</span>
+            <div id="status-dot" class="price-card__dot"></div>
+        </div>
+        <div class="price-card__body">
+            <div id="loading-skeleton" class="price-card__loading">
+                <div class="skeleton"></div>
+            </div>
+            <div id="error-message" class="price-card__error">
+                Error loading price
+            </div>
+            <div id="price-display" class="price-card__value" style="display: none;">
+                <span class="price-card__currency">$</span>
+                <span id="price-number" class="price-card__number">0.00</span>
+            </div>
+        </div>
+        <div class="price-card__footer">
+            <span class="price-card__source">Source: bitcoinapi.dev</span>
+            <button id="refresh-btn" class="price-card__refresh">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"></path><path d="M21 3v5h-5"></path></svg>
+            </button>
+        </div>
+    </div>
+
+    <script type="module" src="./src/main.js"></script>
+</body>
+</html>
