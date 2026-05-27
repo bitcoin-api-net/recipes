@@ -43,6 +43,14 @@ function connect() {
         try {
             const data = JSON.parse(event.data);
 
+            if (data.code || data.message) {
+                errorMessage.textContent = data.message || data.code;
+                errorMessage.style.display = 'block';
+                loadingSkeleton.style.display = 'none';
+                priceDisplay.style.display = 'none';
+                return;
+            }
+
             // Update UI with new price
             priceNumber.textContent = parseFloat(data.price).toLocaleString(undefined, {
                 minimumFractionDigits: 2,
@@ -57,15 +65,17 @@ function connect() {
         }
     };
 
-    socket.onclose = () => {
-        console.log('WebSocket connection closed. Retrying in 5s...');
+    socket.onclose = (event) => {
+        console.log('WebSocket connection closed:', event.code, event.reason);
         statusDot.classList.add('is-offline');
         statusDot.classList.remove('is-loading');
 
-        // Show error message if we don't have a price yet
-        if (priceDisplay.style.display === 'none') {
+        // Show error message if we don't have a price yet OR if it was closed with a reason
+        if (priceDisplay.style.display === 'none' || event.reason) {
+            errorMessage.textContent = event.reason || 'Connection lost. Retrying...';
             loadingSkeleton.style.display = 'none';
             errorMessage.style.display = 'block';
+            priceDisplay.style.display = 'none';
         }
 
         // Automatic reconnection
