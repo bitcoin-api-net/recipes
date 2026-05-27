@@ -27,11 +27,16 @@ This recipe demonstrates:
 
 ## Configuration
 
-By default, the recipe uses `wss://bitcoin-api.net/api`. To use a different WebSocket URL, set the `VITE_WS_API_BROWSER_URL` environment variable:
+By default, the recipe uses `https://bitcoin-api.net/api`. To use a different API URL or provide an API key, set the environment variables in `.env` file (Same directory as this `README.md`):
 
 ```bash
-VITE_WS_API_BROWSER_URL=wss://api.your-custom-domain.com npm run dev
+# Optional: Custom WebSocket URL
+VITE_WS_API_BROWSER_URL=wss://api.your-custom-domain.com
+
+# Optional: Your Bitcoin API Key
+VITE_BITCOIN_API_KEY=your_api_key_here
 ```
+
 
 ## Structure
 

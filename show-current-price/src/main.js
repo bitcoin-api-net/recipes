@@ -1,4 +1,5 @@
 const BASE_URL = import.meta.env.VITE_API_BROWSER_URL || 'https://bitcoin-api.net/api';
+const API_KEY = import.meta.env.VITE_BITCOIN_API_KEY;
 
 const priceNumber = document.getElementById('price-number');
 const priceDisplay = document.getElementById('price-display');
@@ -16,7 +17,12 @@ async function fetchPrice() {
         statusDot.classList.add('is-loading');
         refreshBtn.disabled = true;
 
-        const response = await fetch(`${BASE_URL}/v1/prices/current?symbol=btcusdt`);
+        const headers = {};
+        if (API_KEY) {
+            headers['Authorization'] = `Bearer ${API_KEY}`;
+        }
+
+        const response = await fetch(`${BASE_URL}/v1/prices/current?symbol=btcusdt`, { headers });
         if (!response.ok) throw new Error('Failed to fetch price');
 
         const data = await response.json();

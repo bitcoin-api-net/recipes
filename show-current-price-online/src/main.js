@@ -1,4 +1,5 @@
 const WS_URL = import.meta.env.VITE_WS_API_BROWSER_URL || 'wss://api.bitcoin-api.net/api';
+const API_KEY = import.meta.env.VITE_BITCOIN_API_KEY;
 
 console.log('Connecting to WebSocket:', WS_URL);
 
@@ -13,7 +14,12 @@ let socket;
 let reconnectTimer;
 
 function connect() {
-    const fullUrl = `${WS_URL}/v1/prices/current?symbol=btcusdt`;
+    const url = new URL(`${WS_URL}/v1/prices/current`);
+    url.searchParams.set('symbol', 'btcusdt');
+    if (API_KEY) {
+        url.searchParams.set('apiKey', API_KEY);
+    }
+    const fullUrl = url.toString();
     console.log('Opening connection to:', fullUrl);
     if (connectionUrlDisplay) connectionUrlDisplay.textContent = `Live: ${WS_URL.replace(/^wss?:\/\//, '')}`;
 

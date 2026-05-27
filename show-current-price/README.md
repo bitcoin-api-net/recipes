@@ -27,10 +27,14 @@ This recipe demonstrates:
 
 ## Configuration
 
-By default, the recipe uses `https://bitcoin-api.net/api`. To use a different API URL, set the `VITE_API_BROWSER_URL` environment variable:
+By default, the recipe uses `https://bitcoin-api.net/api`. To use a different API URL or provide an API key, set the environment variables in `.env` file (Same directory as this `README.md`):
 
 ```bash
-VITE_API_BROWSER_URL=https://api.your-custom-domain.com npm run dev
+# Optional: Custom API URL
+VITE_API_BROWSER_URL=https://api.your-custom-domain.com
+
+# Optional: Your Bitcoin API Key
+VITE_BITCOIN_API_KEY=your_api_key_here
 ```
 
 ## Structure
