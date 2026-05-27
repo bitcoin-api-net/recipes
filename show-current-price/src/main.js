@@ -23,9 +23,11 @@ async function fetchPrice() {
         }
 
         const response = await fetch(`${BASE_URL}/v1/prices/current?symbol=btcusdt`, { headers });
-        if (!response.ok) throw new Error('Failed to fetch price');
-
         const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.message || data.code || 'Failed to fetch price');
+        }
 
         // Update UI
         priceNumber.textContent = parseFloat(data.price).toLocaleString(undefined, {
@@ -37,6 +39,7 @@ async function fetchPrice() {
         priceDisplay.style.display = 'flex';
     } catch (err) {
         console.error(err);
+        errorMessage.textContent = err.message;
         loadingSkeleton.style.display = 'none';
         errorMessage.style.display = 'block';
     } finally {
